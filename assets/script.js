@@ -9,6 +9,18 @@ const board = (function () {
     }
 })();
 
+const game = (function () {
+    const playGame = function () {
+        console.log("Let's Play!!")
+        console.log(board.currentBoard);
+
+    }
+
+    return {
+        playGame,
+    }
+})()
+
 function player(mark) {
     const markBoard = function (row, col) {
         if (board.currentBoard[row][col] === null) {
@@ -26,6 +38,6 @@ function player(mark) {
     }
 }
 
-console.log(board.currentBoard);
 const player1 = player("X");
 const player2 = player("O");
+document.querySelector("button").addEventListener("click",game.playGame) 
