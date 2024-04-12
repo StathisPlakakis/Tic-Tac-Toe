@@ -5,7 +5,49 @@ const board = (function () {
         [null, null, null], 
 ];
 
-    
+    const checkWinner = function (mark) {
+        if (currentBoard[0][0] === mark && 
+            currentBoard[0][1] === mark &&       
+            currentBoard[0][2] === mark ) {
+                return true;
+            }
+        if (currentBoard[1][0] === mark && 
+            currentBoard[1][1] === mark &&       
+            currentBoard[1][2] === mark ) {
+                return true;
+            }
+        if (currentBoard[2][0] === mark && 
+            currentBoard[2][1] === mark &&       
+            currentBoard[2][2] === mark ) {
+                return true;
+            }
+        if (currentBoard[0][0] === mark && 
+            currentBoard[1][0] === mark &&       
+            currentBoard[2][0] === mark ) {
+                return true;
+            }
+        if (currentBoard[0][1] === mark && 
+            currentBoard[1][1] === mark &&       
+            currentBoard[2][1] === mark ) {
+                return true;
+            }      
+        if (currentBoard[0][2] === mark && 
+            currentBoard[1][2] === mark &&       
+            currentBoard[2][2] === mark ) {
+                return true;
+            }    
+        if (currentBoard[0][0] === mark && 
+            currentBoard[1][1] === mark &&       
+            currentBoard[2][2] === mark ) {
+                return true;
+            } 
+        if (currentBoard[0][2] === mark && 
+            currentBoard[1][1] === mark &&       
+            currentBoard[2][0] === mark ) {
+                return true;
+            }       
+    }
+
     return {
         currentBoard,
     }
