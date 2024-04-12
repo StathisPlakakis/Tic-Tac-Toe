@@ -48,8 +48,21 @@ const board = (function () {
             }       
     }
 
+    const checkDraw = function () {
+        const first = currentBoard[0].includes(null);
+        const second = currentBoard[1].includes(null);
+        const third = currentBoard[3].includes(null);
+        if (!first && !second && !third) {
+            return true;
+        }
+        return false;
+
+    }
+
     return {
         currentBoard,
+        checkWinner,
+        checkDraw,
     }
 })();
 
