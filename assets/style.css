@@ -1,0 +1,35 @@
+:root {
+    --body-color: black;
+    --grid-color: rgb(113, 215, 247);
+    --text: rgb(113, 215, 247);
+    --grid-color-hover: rgba(113, 215, 247, 0.8);
+
+}
+
+
+body {
+    background-color: var(--body-color);
+    color: var(--text);
+}
+
+.cell {
+    background-color: var(--grid-color)
+}
+
+.cell.X {
+    background-image: url(./images/head-side-brain.svg);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cell.O {
+    background-image: url(./images/user-robot.svg);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cell.null:hover {
+    background-color: var(--grid-color-hover);
+}

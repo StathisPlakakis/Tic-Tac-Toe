@@ -85,9 +85,10 @@ const display = (function () {
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 const cell = document.createElement("div");
-                cell.style.backgroundColor = "lightblue";
-                cell.style.border = "1px solid";
+                // cell.style.backgroundColor = "lightblue";
+                cell.style.border = "1px solid black";
                 cell.style.textAlign = "center";
+                cell.classList.add("cell");
                 cell.setAttribute("i", i);
                 cell.setAttribute("j", j);
                 cell.addEventListener("click", (e) => {
@@ -120,11 +121,11 @@ const display = (function () {
                     
                 })
                 if (board.currentBoard[i][j] === null) {
-                    cell.textContent = "";
+                    cell.classList.add("null");
                 }else if (board.currentBoard[i][j] === "X") {
-                    cell.textContent = "X";
+                    cell.classList.add("X");
                 }else {                    
-                    cell.textContent = "O";                
+                    cell.classList.add("O");                
                 }
                 container.appendChild(cell);
             } 
