@@ -6,44 +6,72 @@ const board = (function () {
 ];
 
     const checkWinner = function (mark) {
+        let cell1;
+        let cell2;
+        let cell3;
+
         if (currentBoard[0][0] === mark && 
             currentBoard[0][1] === mark &&       
             currentBoard[0][2] === mark ) {
+                currentBoard[0][0] = `W${mark}`;
+                currentBoard[0][1] = `W${mark}`;
+                currentBoard[0][2] = `W${mark}`;
                 return true;
             }
         if (currentBoard[1][0] === mark && 
             currentBoard[1][1] === mark &&       
             currentBoard[1][2] === mark ) {
+                currentBoard[1][0] = `W${mark}`;
+                currentBoard[1][1] = `W${mark}`;
+                currentBoard[1][2] = `W${mark}`;
                 return true;
             }
         if (currentBoard[2][0] === mark && 
             currentBoard[2][1] === mark &&       
             currentBoard[2][2] === mark ) {
+                currentBoard[2][0] = `W${mark}`;
+                currentBoard[2][1] = `W${mark}`;
+                currentBoard[2][2] = `W${mark}`;
                 return true;
             }
         if (currentBoard[0][0] === mark && 
             currentBoard[1][0] === mark &&       
             currentBoard[2][0] === mark ) {
+                currentBoard[0][0] = `W${mark}`;
+                currentBoard[1][0] = `W${mark}`;
+                currentBoard[2][0] = `W${mark}`;
                 return true;
             }
         if (currentBoard[0][1] === mark && 
             currentBoard[1][1] === mark &&       
             currentBoard[2][1] === mark ) {
+                currentBoard[0][1] = `W${mark}`;
+                currentBoard[1][1] = `W${mark}`;
+                currentBoard[2][1] = `W${mark}`;
                 return true;
             }      
         if (currentBoard[0][2] === mark && 
             currentBoard[1][2] === mark &&       
             currentBoard[2][2] === mark ) {
+                currentBoard[0][2] = `W${mark}`;
+                currentBoard[1][2] = `W${mark}`;
+                currentBoard[2][2] = `W${mark}`;
                 return true;
             }    
         if (currentBoard[0][0] === mark && 
             currentBoard[1][1] === mark &&       
             currentBoard[2][2] === mark ) {
+                currentBoard[0][0] = `W${mark}`;
+                currentBoard[1][1] = `W${mark}`;
+                currentBoard[2][2] = `W${mark}`;
                 return true;
             } 
         if (currentBoard[0][2] === mark && 
             currentBoard[1][1] === mark &&       
             currentBoard[2][0] === mark ) {
+                currentBoard[0][2] = `W${mark}`;
+                currentBoard[1][1] = `W${mark}`;
+                currentBoard[2][0] = `W${mark}`;
                 return true;
             }      
         return false; 
@@ -85,7 +113,6 @@ const display = (function () {
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 const cell = document.createElement("div");
-                // cell.style.backgroundColor = "lightblue";
                 cell.style.border = "1px solid black";
                 cell.style.textAlign = "center";
                 cell.classList.add("cell");
@@ -98,8 +125,8 @@ const display = (function () {
                         
                         if (board.currentBoard[pickRow][pickCol] === null) {
                             board.currentBoard[pickRow][pickCol] = "X";
-                            render();
                             game.endGame("X");
+                            render();                         
                             if (game.isActive) {
                                 let row = Math.floor(Math.random() * 3);
                                 let col = Math.floor(Math.random() * 3);
@@ -108,14 +135,10 @@ const display = (function () {
                                      col = Math.floor(Math.random() * 3);
                                 }
                                 board.currentBoard[row][col] = "O";
-                                render();
                                 game.endGame("O");
-                            }else {
-                                console.log(game.winner)
+                                render();
                             }
                         }
-                    }else {
-                        console.log(game.winner)
                     }
                       
                     
@@ -124,6 +147,10 @@ const display = (function () {
                     cell.classList.add("null");
                 }else if (board.currentBoard[i][j] === "X") {
                     cell.classList.add("X");
+                }else if (board.currentBoard[i][j] === "WX") {
+                    cell.classList.add("WX");
+                }else if (board.currentBoard[i][j] === "WO") {
+                    cell.classList.add("WO");
                 }else {                    
                     cell.classList.add("O");                
                 }

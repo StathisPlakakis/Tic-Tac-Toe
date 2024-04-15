@@ -18,14 +18,27 @@ body {
 
 .cell.X {
     background-image: url(./images/head-side-brain.svg);
-    background-size: cover; 
+    background-size: 60px; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cell.WX {
+    background-image: url(./images/wx.svg);
+    background-size: 70px; 
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .cell.O {
     background-image: url(./images/user-robot.svg);
-    background-size: cover; 
+    background-size: 60px; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cell.WO {
+    background-image: url(./images/wo.svg);
+    background-size: 70px; 
     background-position: center;
     background-repeat: no-repeat;
 }
