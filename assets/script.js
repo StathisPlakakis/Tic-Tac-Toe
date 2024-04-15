@@ -6,9 +6,6 @@ const board = (function () {
 ];
 
     const checkWinner = function (mark) {
-        let cell1;
-        let cell2;
-        let cell3;
 
         if (currentBoard[0][0] === mark && 
             currentBoard[0][1] === mark &&       
@@ -183,6 +180,18 @@ const game = (function () {
         endGame,
     }
 })()
+
+
+const button = document.querySelector("button");
+button.addEventListener("click",
+() => {
+    board.currentBoard = [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null], 
+]
+    display.render();
+})
 
 
 display.render()
