@@ -71,3 +71,24 @@ button:active {
     background-color: aliceblue;
     color: #f57dfb;
 }
+
+dialog {
+    text-align: center;
+    position: relative;
+    height: 400px;
+    width: 300px;
+    background-color: var(--grid-color);
+    color: black;
+    border-radius: 25px;
+}
+
+dialog h3 {
+    position: absolute;
+    top: 50px
+}
+
+dialog button {
+    position: absolute;
+    bottom: 150px;
+}
+

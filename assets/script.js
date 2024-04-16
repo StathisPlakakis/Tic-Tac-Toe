@@ -136,7 +136,7 @@ const display = (function () {
                             if (!game.isActive) {
                                 const dialog = document.createElement("dialog");
                                 const winnerAnnoun = document.createElement("h3");
-                                winnerAnnoun.textContent = (game.winner === "X") ? `Bravo, YOU WON` : `It is a DRAW`;
+                                winnerAnnoun.textContent = (game.winner === "X") ? `Bravo, YOU WON!` : `It is a DRAW`;
                                 const closeButton = document.createElement("button");
                                 closeButton.textContent = "Close";
                                 closeButton.addEventListener("click", () => {
