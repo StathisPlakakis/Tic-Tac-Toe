@@ -200,7 +200,9 @@ const game = (function () {
 const button = document.querySelector("button");
 button.addEventListener("click",
 () => {
-
+    board.reset();
+    game.reset();
+    display.render();
 })
 
 
