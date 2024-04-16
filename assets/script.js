@@ -5,6 +5,14 @@ const board = (function () {
         [null, null, null], 
 ];
 
+    const reset = function () {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                board.currentBoard[i][j] = null;
+            }
+        }
+    }
+
     const checkWinner = function (mark) {
 
         if (currentBoard[0][0] === mark && 
@@ -89,6 +97,7 @@ const board = (function () {
         currentBoard,
         checkWinner,
         checkDraw,
+        reset,
     }
 })();
 
@@ -174,10 +183,16 @@ const game = (function () {
         }
     }
 
+    const reset = function () {
+        game.isActive = true;
+        game.winner = undefined;
+    }
+
     return {
         isActive,
         winner,
         endGame,
+        reset,
     }
 })()
 
@@ -185,12 +200,7 @@ const game = (function () {
 const button = document.querySelector("button");
 button.addEventListener("click",
 () => {
-    board.currentBoard = [
-        [null, null, null],
-        [null, null, null],
-        [null, null, null], 
-]
-    display.render();
+
 })
 
 
