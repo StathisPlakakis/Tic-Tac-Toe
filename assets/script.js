@@ -132,7 +132,22 @@ const display = (function () {
                         if (board.currentBoard[pickRow][pickCol] === null) {
                             board.currentBoard[pickRow][pickCol] = "X";
                             game.endGame("X");
-                            render();                         
+                            render();
+                            if (!game.isActive) {
+                                const dialog = document.createElement("dialog");
+                                const winnerAnnoun = document.createElement("h3");
+                                winnerAnnoun.textContent = (game.winner === "X") ? `Bravo, YOU WON` : `It is a DRAW`;
+                                const closeButton = document.createElement("button");
+                                closeButton.textContent = "Close";
+                                closeButton.addEventListener("click", () => {
+                                    dialog.close();
+                                }
+                                );
+                                dialog.appendChild(winnerAnnoun);
+                                dialog.appendChild(closeButton);
+                                document.body.insertBefore(dialog, button);
+                                dialog.showModal();
+                            }                        
                             if (game.isActive) {
                                 let row = Math.floor(Math.random() * 3);
                                 let col = Math.floor(Math.random() * 3);
@@ -143,6 +158,21 @@ const display = (function () {
                                 board.currentBoard[row][col] = "O";
                                 game.endGame("O");
                                 render();
+                                if (!game.isActive) {
+                                    const dialog = document.createElement("dialog");
+                                    const winnerAnnoun = document.createElement("h3");
+                                    winnerAnnoun.textContent = (game.winner === "O") ? `You Lost...` : `It is a DRAW`;
+                                    const closeButton = document.createElement("button");
+                                    closeButton.textContent = "Close";
+                                    closeButton.addEventListener("click", () => {
+                                        dialog.close();
+                                    }
+                                    );
+                                    dialog.appendChild(winnerAnnoun);
+                                    dialog.appendChild(closeButton);
+                                    document.body.insertBefore(dialog, button);
+                                    dialog.showModal();
+                                }
                             }
                         }
                     }
